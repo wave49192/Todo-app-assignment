@@ -1,0 +1,88 @@
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+    margin: 10px 0;
+    padding: 20px;
+    border-radius: 60px;
+    color: #2e2e2e;
+}
+
+.task-title:focus {
+    border: none;
+    outline: none;
+
+}
+
+.check-and-title {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+.task-title {
+    padding-left: 10px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border: 2px solid #585292;
+
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-container input:checked~.checkmark {
+    background-color: #585292;
+    border-color: #585292;
+}
+
+.checkbox-container input:checked~.checkmark:after {
+    display: block;
+}
+
+.save-button {
+    background-color: #585292;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer
+}

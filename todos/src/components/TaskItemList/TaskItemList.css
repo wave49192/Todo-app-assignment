@@ -1,0 +1,86 @@
+.task-item-list {
+    margin: 10px;
+}
+
+.input-item {
+    display: flex;
+    background-color: white;
+    width: 100%;
+    margin: 10px 0;
+    padding: 20px;
+    border-radius: 60px;
+    color: #2e2e2e;
+    outline: none;
+    border: none;
+    font-size: 20px;
+    box-sizing: border-box;
+}
+
+
+input:focus {
+    outline: none;
+}
+
+.task-item-list-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 160px;
+    border-radius: 15px;
+}
+
+
+.dropbtn:hover,
+.dropbtn:focus {
+    background-color: #bdbdbd;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 4px;
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.dropdown-content button {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+}
+
+.dropdown-content button:hover {
+    background-color: #585292 !important;
+    color: white !important;
+    border-radius: 15px;
+}
