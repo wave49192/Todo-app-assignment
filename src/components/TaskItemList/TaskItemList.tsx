@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useTaskContext } from "../../context/TaskContext";
 import TaskItem, { TaskItemProps } from "../TaskItem/TaskItem";
 import "./TaskItemList.css";
@@ -8,6 +8,23 @@ const TaskItemList: React.FC = () => {
   const [newTask, setNewTask] = useState<string>("");
   const [filter, setFilter] = useState<string>("all");
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setShowDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const handleKeyDown = async (
     event: React.KeyboardEvent<HTMLInputElement>
@@ -54,7 +71,10 @@ const TaskItemList: React.FC = () => {
             {capitalizeFirstLetter(filter)}
             <div>v</div>
           </button>
-          <div className={`dropdown-content ${showDropdown ? "show" : ""}`}>
+          <div
+            ref={dropdownRef}
+            className={`dropdown-content ${showDropdown ? "show" : ""}`}
+          >
             <button onClick={() => handleFilterChange("all")}>All</button>
             <button onClick={() => handleFilterChange("done")}>Done</button>
             <button onClick={() => handleFilterChange("undone")}>Undone</button>
